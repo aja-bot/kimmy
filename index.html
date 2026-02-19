@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>for My BabyBunso 💛</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Fredoka:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <h1>Dear Our Bunso 💛</h1>
+        <p>
+            Every day, you make us proud with your effort, courage, and determination. These messages are little reminders that you are loved, supported, and capable of amazing things. Keep going, and remember: we are always with you Iloveyou baby Kimmy. 🌟
+        </p>
+    </div>
+
+    <div class="right">
+        <div class="message-card">
+
+            <div class="message-box" id="messageText">
+                Hi Bunso! Click the button to get a sweet message from us 💌
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <button onclick="newMessage()">Get Encouragement 💛</button>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+let clickCount = 0;
+
+const messages = [
+"Bunso, we are so proud of you for trying your best every single day. That effort alone already means so much.",
+"School may be challenging sometimes, but you are capable of learning, growing, and overcoming every obstacle.",
+"Don’t be too hard on yourself. Progress takes time, and you are moving forward more than you realize.",
+"Bunso, your dreams are valid, and you have the strength to reach them step by step.",
+"Even when you feel tired or discouraged, remember that you are not alone in this journey.",
+"Your grades do not define your worth. What truly matters is your determination and your heart.",
+"Bunso, it’s okay to make mistakes that’s how you learn and become wiser.",
+"Whenever school feels overwhelming, pause, breathe, and remember how far you’ve already come.",
+"We believe in your abilities, even on days when you doubt yourself.",
+"Bunso, your hard work today is building the future you’ve always hoped for.",
+"Never compare your journey to others. You are growing at your own beautiful pace.",
+"If things don’t go as planned, that doesn’t mean you failed  it just means you’re learning.",
+"Me and your family are always here to support you, guide you, and lift you up whenever you need it.",
+"You are stronger than stress, braver than fear, and smarter than you think.",
+"Keep going, bunso. No matter what happens, we love you, we support you, and we will always stand by your side. 💛"
+];
+
+function getSurpriseLetter() {
+    return `
+<img src="us.jpg" alt="Us Together" class="letter-photo">
+
+<div class="letter-text">
+Hey Bunso 💛<br><br>
+
+I want you to know, from the bottom of my heart, that I am always here for you no matter what. Whenever you feel tired, overwhelmed, or unsure, I am right beside you, ready to support you in any way you need. You don’t have to face your worries alone, because your feelings matter, your thoughts matter, and you matter.<br><br>
+
+If ever you need someone to talk to, I will listen without judgment. If you need a shoulder to lean on, mine is always open. If you need guidance, encouragement, or even just a quiet presence to remind you that everything will be okay, I am here. You are never alone in this journey. Every challenge, every doubt, every fear you feel  I am here to face it with you.<br><br>
+
+Life may not always be easy, and there may be moments when it feels heavy, but remember that you are stronger than you realize. You are brave, kind, and capable, and every step you take  even the small ones  is a victory. And even on days when you feel like you’ve stumbled or fallen short, I will be here to lift you up, remind you of your worth, and help you keep moving forward.<br><br>
+
+I believe in you completely. I believe in your dreams, your heart, your courage, and your strength. No matter what happens, know that my support is constant, my love is unwavering, and my faith in you is endless. You can always share your worries, your fears, your happiness, or even your silly little thoughts with me  I will always listen, I will always care, and I will always be here.<br><br>
+
+So whenever life feels overwhelming, or you just need someone to remind you that you are loved and not alone, remember this: I am always here for you, Bunso. Today, tomorrow, and every day after that . 💛
+</div>
+`;
+}
+
+function newMessage() {
+    const messageBox = document.getElementById("messageText");
+    const typingIndicator = document.getElementById("typingIndicator");
+
+    clickCount++;
+
+    messageBox.style.display = "none";
+    typingIndicator.style.display = "block";
+
+    setTimeout(() => {
+        typingIndicator.style.display = "none";
+        messageBox.style.display = "block";
+
+        if (clickCount === 20) { 
+            messageBox.innerHTML = getSurpriseLetter();
+            clickCount = 0;
+        } else {
+            const index = Math.floor(Math.random() * messages.length);
+            messageBox.textContent = messages[index];
+        }
+    }, 1500);
+}
+</script>
+
+</body>
+</html>
